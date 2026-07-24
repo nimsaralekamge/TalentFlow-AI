@@ -2,52 +2,56 @@
                       PROJECT SETUP INSTRUCTIONS
 ========================================================================
 
+Tech Stack:
+- Frontend: React (Node.js)
+- Backend: C# (.NET Web API)
+- Database: PostgreSQL (Hosted on Neon Console)
+
 Prerequisites Required:
-- Java JDK 17 or higher
+- .NET 8.0 SDK (or required .NET Runtime)
 - Node.js (v18 or higher)
-- MySQL Database / Server
+- Active Internet Connection (Required to connect to Cloud Database)
 
 ------------------------------------------------------------------------
-STEP 1: DATABASE SETUP
+STEP 1: DATABASE
 ------------------------------------------------------------------------
-1. Open your MySQL client (MySQL Workbench, phpMyAdmin, or CLI).
-2. Create a new database or import the provided SQL file:
-   - File Name: database.sql (included in this folder)
-3. Ensure the database connection settings match your local setup in 
-   the Spring Boot configuration.
+- The database is fully hosted on Neon Cloud Database.
+- No local database installation or restoration is required.
+- An active internet connection is needed for the backend to connect to Neon DB.
 
 ------------------------------------------------------------------------
-STEP 2: BACKEND RUN INSTRUCTIONS (Spring Boot)
+STEP 2: BACKEND RUN INSTRUCTIONS (C# .NET)
 ------------------------------------------------------------------------
-Option A (Running the JAR file directly):
-1. Open Command Prompt / Terminal in this folder.
+Option A (Running the Pre-compiled Executable / Published Build):
+1. Open Command Prompt / Terminal in the published backend directory.
+2. Run the executable file:
+   dotnet YourProjectName.dll
+   (OR double click YourProjectName.exe if running on Windows)
+
+Option B (Running from Source Code):
+1. Navigate to the backend directory where the .csproj file is located.
 2. Run the following command:
-   java -jar backend-app.jar
+   dotnet run
 
-Option B (If running from Source Code):
-1. Navigate to the /backend directory.
-2. Run: 
-   ./mvnw spring-boot:run   (Linux/Mac)
-   mvnw.cmd spring-boot:run (Windows)
-
-* The backend server will start on: http://localhost:8080
+* The backend API server will start on http://localhost:5000 (or https://localhost:7001)
 
 ------------------------------------------------------------------------
-STEP 3: FRONTEND RUN INSTRUCTIONS (React / Vite)
+STEP 3: FRONTEND RUN INSTRUCTIONS (React)
 ------------------------------------------------------------------------
 Option A (Serving Production Build):
-1. You can serve the static files inside the /build (or /dist) folder 
-   using any web server (e.g., Live Server, Nginx, or `npx serve -s dist`).
+1. You can serve the static build files inside the /dist (or /build) folder 
+   using a web server or by running:
+   npx serve -s dist
 
-Option B (If running from Source Code):
+Option B (Running from Source Code):
 1. Navigate to the /frontend directory.
 2. Install dependencies:
    npm install
-3. Start the development server:
+3. Start the React development server:
    npm run dev  (or npm start)
 
 * The frontend application will be available at: http://localhost:5173 
-  (or http://localhost:3000)
+  
 
 ========================================================================
                THANK YOU FOR EVALUATING OUR PROJECT!
