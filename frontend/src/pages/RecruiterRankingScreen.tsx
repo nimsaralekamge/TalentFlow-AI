@@ -14,6 +14,15 @@ interface KpiData {
   placementRate: number;
 }
 
+interface RankedCandidate {
+  id: number;
+  name: string;
+  role: string;
+  matchScore: number;
+  parsedSkills: string[];
+}
+
+
 const C = {
   bg: "#080c10",
   panel: "#0d1318",
@@ -32,13 +41,7 @@ const C = {
 
 
 
-interface RankedCandidate {
-  id: number;
-  name: string;
-  role: string;
-  matchScore: number;
-  parsedSkills: string[];
-}
+
 
 export default function RecruiterRankingScreen() {
   const [kpis, setKpis] = useState<KpiData | null>(null);
