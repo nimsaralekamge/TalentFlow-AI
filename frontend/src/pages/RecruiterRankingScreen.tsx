@@ -5,19 +5,6 @@ import { Search, Bell, Brain, FileText, Target, TrendingUp, Zap, AlertCircle, Lo
 // ---------------------------------------------------------------------------
 // Design tokens — Ultra-dark cinematic luxury theme
 // ---------------------------------------------------------------------------
-const C = {
-  bg: "#080c10",
-  panel: "#0d1318",
-  panelAlt: "#121922",
-  border: "rgba(255,255,255,0.06)",
-  borderStrong: "rgba(255,255,255,0.14)",
-  text: "#FFFFFF",
-  textDim: "#5c7086",
-  teal: "#22d9d9",
-  blue: "#27668C",
-  gold: "#D9B855",
-  red: "#E0665A",
-} as const;
 
 interface KpiData {
   totalCandidates: number;
@@ -33,6 +20,20 @@ interface RankedCandidate {
   matchScore: number;
   parsedSkills: string[];
 }
+
+const C = {
+  bg: "#080c10",
+  panel: "#0d1318",
+  panelAlt: "#121922",
+  border: "rgba(255,255,255,0.06)",
+  borderStrong: "rgba(255,255,255,0.14)",
+  text: "#FFFFFF",
+  textDim: "#5c7086",
+  teal: "#22d9d9",
+  blue: "#27668C",
+  gold: "#D9B855",
+  red: "#E0665A",
+} as const;
 
 const API_BASE = import.meta.env?.VITE_API_BASE_URL || "http://localhost:5016";
 
@@ -118,6 +119,7 @@ export default function RecruiterRankingScreen() {
           </span>
         </div>
         
+        {/* Search Input Bar */}
         <div className="flex-1 max-w-xl mx-8 relative hidden md:block">
           <input 
             type="text" 
@@ -131,7 +133,7 @@ export default function RecruiterRankingScreen() {
           </div>
         </div>
 
-        {/* Fully Hardcoded Profile Section */}
+        {/* Profile Section */}
         <div className="flex items-center gap-4">
           <div className="relative p-2.5 rounded-xl shadow-inner shrink-0 cursor-pointer" style={{ background: C.panel, border: `1px solid ${C.border}` }}>
             <Bell size={18} style={{ color: C.textDim }} />
@@ -151,7 +153,7 @@ export default function RecruiterRankingScreen() {
       </nav>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Child Sidebar Component */}
+        {/* Sidebar */}
         <SideNav />
 
         <main className="p-8 md:p-10 flex-1 overflow-y-auto">
