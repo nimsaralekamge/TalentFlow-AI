@@ -5,6 +5,15 @@ import { Search, Bell, Brain, FileText, Target, TrendingUp, Zap, AlertCircle } f
 // ---------------------------------------------------------------------------
 // Design tokens — Ultra-dark cinematic luxury theme
 // ---------------------------------------------------------------------------
+
+
+interface KpiData {
+  totalCandidates: number;
+  avgMatchScore: number;
+  resumesParsed: number;
+  placementRate: number;
+}
+
 const C = {
   bg: "#080c10",
   panel: "#0d1318",
@@ -19,12 +28,9 @@ const C = {
   red: "#E0665A",
 } as const;
 
-interface KpiData {
-  totalCandidates: number;
-  avgMatchScore: number;
-  resumesParsed: number;
-  placementRate: number;
-}
+
+
+
 
 interface RankedCandidate {
   id: number;
@@ -81,16 +87,7 @@ export default function RecruiterRankingScreen() {
           </span>
         </div>
         
-        <div className="flex-1 max-w-xl mx-8 relative hidden md:block">
-          <input 
-            type="text" 
-            placeholder="Search AI insights, rankings, or candidate metrics..." 
-            className="w-full bg-[#121922] border border-[rgba(255,255,255,0.06)] rounded-xl pl-11 pr-4 py-2.5 text-sm text-[#FFFFFF] placeholder-[#5c7086] outline-none focus:border-[#22d9d9]/50 transition-all shadow-inner"
-          />
-          <div className="absolute left-3.5 top-3 text-[#5c7086]">
-            <Search size={16} />
-          </div>
-        </div>
+        
 
         <div className="flex items-center gap-4">
           <div className="relative p-2.5 rounded-xl shadow-inner shrink-0 cursor-pointer" style={{ background: C.panel, border: `1px solid ${C.border}` }}>
@@ -107,6 +104,19 @@ export default function RecruiterRankingScreen() {
             </div>
           </div>
         </div>
+
+<div className="flex-1 max-w-xl mx-8 relative hidden md:block">
+          <input 
+            type="text" 
+            placeholder="Search AI insights, rankings, or candidate metrics..." 
+            className="w-full bg-[#121922] border border-[rgba(255,255,255,0.06)] rounded-xl pl-11 pr-4 py-2.5 text-sm text-[#FFFFFF] placeholder-[#5c7086] outline-none focus:border-[#22d9d9]/50 transition-all shadow-inner"
+          />
+          <div className="absolute left-3.5 top-3 text-[#5c7086]">
+            <Search size={16} />
+          </div>
+        </div>
+
+
       </nav>
 
       <div className="flex flex-1 overflow-hidden">
